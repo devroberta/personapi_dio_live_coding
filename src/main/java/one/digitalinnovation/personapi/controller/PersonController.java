@@ -45,4 +45,11 @@ public class PersonController {
   public PersonDTO findById (@PathVariable Long id) {
       return personService.findPersonById(id);
   }
+
+  @ApiOperation("Delete a person by id")
+  @DeleteMapping("/{id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void deletePersonById(@PathVariable Long id) {
+    personService.deletePersonById(id);
+  }
 }
