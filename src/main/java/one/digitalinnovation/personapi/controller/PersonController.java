@@ -1,5 +1,8 @@
 package one.digitalinnovation.personapi.controller;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import one.digitalinnovation.personapi.dto.MessageResponseDTO;
 import one.digitalinnovation.personapi.dto.request.PersonDTO;
 import one.digitalinnovation.personapi.entity.Person;
@@ -23,15 +26,23 @@ public class PersonController {
     this.personService = personService;
   }
 
+  @ApiOperation("List all person saved")
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
   public List<PersonDTO> findAllPerson() {
     return personService.findAllPerson();
   }
 
+  @ApiOperation("Save a person")
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO) {
     return personService.createPerson(personDTO);
+  }
+
+  @ApiOperation("Find a person by id")
+  @GetMapping("/{id}")
+  public PersonDTO findById (@PathVariable Long id) {
+      return personService.findPersonById(id);
   }
 }
