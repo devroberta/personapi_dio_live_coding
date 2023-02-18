@@ -25,7 +25,7 @@ public class PersonController {
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public List<Person> findAllPerson() {
+  public List<PersonDTO> findAllPerson() {
     return personService.findAllPerson();
   }
 
