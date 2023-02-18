@@ -40,8 +40,16 @@ public class PersonController {
     return personService.createPerson(personDTO);
   }
 
+  @ApiOperation("Update a person by id")
+  @PutMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  public MessageResponseDTO updatePerson(@PathVariable Long id, @RequestBody @Valid PersonDTO personDTO) {
+    return personService.updatePerson(id, personDTO);
+  }
+
   @ApiOperation("Find a person by id")
   @GetMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
   public PersonDTO findById (@PathVariable Long id) {
       return personService.findPersonById(id);
   }
