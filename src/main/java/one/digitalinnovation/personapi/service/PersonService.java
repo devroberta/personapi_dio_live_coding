@@ -5,7 +5,7 @@ import one.digitalinnovation.personapi.entity.Person;
 import one.digitalinnovation.personapi.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+import java.util.List;
 
 @Service
 public class PersonService {
@@ -23,5 +23,9 @@ public class PersonService {
             .builder()
             .message("Created person with ID " + savedPerson.getId())
             .build();
+  }
+
+  public List<Person> findAllPerson() {
+    return personRepository.findAll();
   }
 }

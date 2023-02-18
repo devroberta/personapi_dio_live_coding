@@ -40,5 +40,6 @@ public class Person {
   private LocalDate birthdate;
 
   @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-  private List<Phone> phones = new ArrayList<>();
+  private List<Phone> phones = new ArrayList<Phone>();
+
 }
